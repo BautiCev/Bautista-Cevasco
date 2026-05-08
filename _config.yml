@@ -1,7 +1,7 @@
 title: "Héroes de América"
 description: "Memorias de la independencia americana · Est. MDCCCXVII"
-baseurl: ""
-url: ""
+baseurl: "/Bautista-Cevasco"
+url: "https://BautiCev.github.io"
 theme: minima
 author: "Archivo Histórico"
 lang: es
