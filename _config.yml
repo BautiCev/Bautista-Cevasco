@@ -2,7 +2,7 @@ title: "Héroes de América"
 description: "Memorias de la independencia americana · Est. MDCCCXVII"
 baseurl: ""
 url: ""
-
+theme: minima
 author: "Archivo Histórico"
 lang: es
 
