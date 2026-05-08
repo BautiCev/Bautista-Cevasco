@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<article class="post">
+
+  <header class="post-header">
+    {% if page.category %}
+    <p class="post-category">{{ page.category }}</p>
+    {% endif %}
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <p class="post-subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+    <div class="post-meta">
+      <span>{{ page.date | date: "%d de %B, %Y" }}</span>
+      {% if page.location %}<span>{{ page.location }}</span>{% endif %}
+      {% if page.read_time %}<span>Lectura: {{ page.read_time }}</span>{% endif %}
+    </div>
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+
+  {% if page.tags %}
+  <div class="tags">
+    {% for tag in page.tags %}
+    <span class="tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+</article>

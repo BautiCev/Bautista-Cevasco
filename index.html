@@ -1,0 +1,25 @@
+---
+layout: default
+title: "Inicio"
+---
+
+<div class="home">
+  <h2 class="home-heading">Últimas entradas</h2>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li class="post-item">
+      {% if post.category %}
+      <p class="post-category">{{ post.category }}</p>
+      {% endif %}
+      <h3 class="post-item-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h3>
+      {% if post.subtitle %}
+      <p class="post-item-subtitle">{{ post.subtitle }}</p>
+      {% endif %}
+      <p class="post-item-meta">{{ post.date | date: "%d de %B, %Y" }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
