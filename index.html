@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>José de San Martín — Padre de la Patria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:       #faf8f4;
+      --text:     #1a1714;
+      --muted:    #5a5450;
+      --faint:    #9a918a;
+      --border:   #d8d2c8;
+      --surface:  #f0ece4;
+      --accent:   #7a3b1e;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Crimson Text', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 0;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 2.5px solid var(--text);
+      padding-bottom: 0.7rem;
+    }
+
+    .site-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .site-nav a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .site-nav a:hover { color: var(--text); }
+
+    .site-tagline {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 11px;
+      color: var(--faint);
+      letter-spacing: 0.06em;
+      text-align: right;
+      padding: 0.3rem 0 0;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 760px;
+      margin: 3.5rem auto 0;
+      padding: 0 1.5rem;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadein 0.9s ease forwards 0.1s;
+    }
+
+    .post-category {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+    }
+
+    .post-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+    }
+
+    .post-subtitle {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      max-width: 560px;
+    }
+
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 1.5rem;
+      font-size: 12px;
+      color: var(--faint);
+      letter-spacing: 0.05em;
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0.5rem 0;
+    }
+
+    /* ── Content ── */
+    .content {
+      max-width: 680px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem 5rem;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadein 0.9s ease forwards 0.3s;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 3rem 0 0.8rem;
+      color: var(--text);
+    }
+
+    /* drop cap */
+    .dropcap::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.8rem;
+      font-weight: 700;
+      float: left;
+      line-height: 0.72;
+      margin-right: 0.08em;
+      margin-top: 0.08em;
+      color: var(--accent);
+    }
+
+    /* pull quote */
+    blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 0.5rem 1.2rem;
+      margin: 2.2rem 0 2.2rem 0.5rem;
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    blockquote cite {
+      display: block;
+      font-style: normal;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+      color: var(--faint);
+    }
+
+    /* facts box */
+    .facts {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 6px;
+      padding: 1.3rem 1.5rem;
+      margin: 2.2rem 0;
+    }
+
+    .facts h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .facts dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.4rem 1.2rem;
+    }
+
+    .facts dt {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .facts dd {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* divider */
+    .divider {
+      text-align: center;
+      color: var(--faint);
+      letter-spacing: 0.6em;
+      margin: 2.5rem 0;
+      font-size: 1rem;
+    }
+
+    /* tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .tag {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 2px;
+      padding: 3px 9px;
+      color: var(--muted);
+    }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 2.5rem;
+      border-top: 2.5px solid var(--text);
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--faint);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Animation ── */
+    @keyframes fadein {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 580px) {
+      .header-top { flex-direction: column; gap: 0.8rem; }
+      .site-tagline { text-align: left; }
+      .post-meta { flex-direction: column; gap: 0.2rem; }
+      blockquote { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-top">
+      <span class="site-title">Héroes de América</span>
+      <nav>
+        <ul class="site-nav">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Historia</a></li>
+          <li><a href="#">Archivo</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="site-tagline">Memorias de la independencia americana · Est. MDCCCXVII</p>
+  </header>
+
+  <div class="hero">
+    <p class="post-category">Biografía · Padres de la Patria</p>
+    <h1 class="post-title">José de San Martín</h1>
+    <p class="post-subtitle">El Libertador que cruzó los Andes para forjar la libertad de un continente</p>
+    <div class="post-meta">
+      <span>17 de agosto, 1850</span>
+      <span>Buenos Aires, Argentina</span>
+      <span>Lectura: 4 min</span>
+    </div>
+  </div>
+
+  <main class="content">
+
+    <div class="facts">
+      <h3>Datos esenciales</h3>
+      <dl>
+        <dt>Nacimiento</dt><dd>25 de febrero de 1778 — Yapeyú, Corrientes</dd>
+        <dt>Fallecimiento</dt><dd>17 de agosto de 1850 — Boulogne-sur-Mer, Francia</dd>
+        <dt>Título</dt><dd>Padre de la Patria · Generalísimo</dd>
+        <dt>Hazaña mayor</dt><dd>Cruce de los Andes, enero–febrero de 1817</dd>
+        <dt>Países liberados</dt><dd>Argentina, Chile, Perú</dd>
+      </dl>
+    </div>
+
+    <p class="dropcap">José Francisco de San Martín nació el 25 de febrero de 1778 en Yapeyú, una pequeña aldea a orillas del río Uruguay, en el actual territorio de la provincia de Corrientes. Hijo de un oficial español y de una criolla, su destino estuvo signado desde temprano por la espada y el honor. A los once años ya vestía uniforme militar en España, donde forjaría durante décadas la disciplina y la estrategia que más tarde pondría al servicio de la emancipación americana.</p>
+
+    <h2>El regreso y el Ejército del Norte</h2>
+
+    <p>En 1812, San Martín desembarcó en Buenos Aires cargando consigo veinte años de campaña europea. Rápidamente comprendió que la guerra de la independencia no podía ganarse defendiendo el Río de la Plata: había que llevarla al corazón mismo del poder español en Lima. Organizó el Regimiento de Granaderos a Caballo y, en 1814, asumió el gobierno de Cuyo para preparar en silencio el plan más audaz de la historia militar americana.</p>
+
+    <blockquote>
+      "Seamos libres, que lo demás no importa nada."
+      <cite>— José de San Martín</cite>
+    </blockquote>
+
+    <h2>El cruce de los Andes</h2>
+
+    <p>En enero de 1817, al frente de más de cinco mil hombres, San Martín inició uno de los cruzamientos de montaña más extraordinarios de la historia. El Ejército de los Andes trepó por seis pasos cordilleranos simultáneos bajo un frío brutal y una altura que mataba. El 12 de febrero de ese año, en la batalla de Chacabuco, los patriotas barrieron a los realistas y abrieron las puertas de Santiago. Chile era libre.</p>
+
+    <p>No se detuvo allí. Reorganizó fuerzas, resistió el revés de Cancha Rayada y aplastó definitivamente al ejército español en la batalla de Maipú, el 5 de abril de 1818. Luego miró hacia el norte, hacia el Perú, bastión final del poder colonial en América del Sur.</p>
+
+    <div class="divider">· · ·</div>
+
+    <h2>Lima y la renuncia al poder</h2>
+
+    <p>En julio de 1821, San Martín entró en Lima y proclamó la independencia del Perú. Se convirtió en Protector del país y emprendió la difícil tarea de organizar un Estado naciente. Pero la guerra no había terminado. En 1822 se entrevistó en Guayaquil con Simón Bolívar —encuentro misterioso del que no quedaron actas— y tomó una decisión que la historia no ha terminado de descifrar: renunció a todos sus cargos y abandonó América para siempre.</p>
+
+    <p>Vivió sus últimos años en Europa, primero en Bruselas y luego en la pequeña ciudad francesa de Boulogne-sur-Mer, donde murió el 17 de agosto de 1850, rodeado de su hija Mercedes y de un silencio que él mismo había elegido. Sus restos descansan hoy en la Catedral Metropolitana de Buenos Aires.</p>
+
+    <div class="tags">
+      <span class="tag">Argentina</span>
+      <span class="tag">Independencia</span>
+      <span class="tag">Chile</span>
+      <span class="tag">Perú</span>
+      <span class="tag">Ejército de los Andes</span>
+      <span class="tag">Siglo XIX</span>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>Héroes de América · Archivo histórico</span>
+    <span>Buenos Aires, Argentina</span>
+  </footer>
+
+</body>
+</html>
